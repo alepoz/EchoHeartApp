@@ -56,8 +56,8 @@ def calculate_angle(mag1, mag2, dot):
     :return: kąt
     :rtype: float
     """
-    cosinus = dot/(mag1*mag2)
-    cosinus = round(cosinus,2)
+    cosinus = dot / (mag1 * mag2)
+    cosinus = round(cosinus, 2)
     if 1 >= cosinus >= -1:
         return math.acos(cosinus)
 
@@ -96,7 +96,7 @@ def line_vector(x, x1, x2, y1, y2):
     """
         Oblicza y dla każdego elementu z tablicy x, wg równania linii przechodzącej przez punkty: (x1,y1), (x2, y2)
         :param x: tablica współrzędnych x
-        :type x: array
+        :type x: numpy.array
         :param x1: współrzędna x 1. punktu, przez który przechodzi prosta
         :type x1: tuple/list
         :param y1: współrzędna y 1. punktu, przez który przechodzi prosta
@@ -106,7 +106,7 @@ def line_vector(x, x1, x2, y1, y2):
         :param y1: współrzędna y 2. punktu, przez który przechodzi prosta
         :type y2: tuple/list
         :return: tablica współrzędnych y
-        :rtype: array
+        :rtype: numpy.array
         """
     a = (y2 - y1) / (x2 - x1)
     return a * (x - x1) + y1
@@ -142,7 +142,7 @@ def ortogonal_vector(x, a, x1, y1):
     Oblicza y dla każdego elementu z tablicy x, wg równania linii o współczynniku nachylenia a i
     przechodzącej przez punkt (x1,y1)
     :param x: tablica współrzędnych x
-    :type x: array
+    :type x: numpy.array
     :param a: współczynnik nachylenia linii
     :type a: float
     :param x1: współrzędna x punktu, przez który przechodzi prosta
@@ -150,7 +150,7 @@ def ortogonal_vector(x, a, x1, y1):
     :param y1: współrzędna y punktu, przez który przechodzi prosta
     :type y1: tuple/list
     :return: tablica współrzędnych y
-    :rtype: array
+    :rtype: numpy.array
     """
     if a is not None:
         return a * (x - x1) + y1
@@ -169,6 +169,7 @@ def midpoint(pt1, pt2):
     """
     mid_pt = int((pt1[0] + pt2[0]) / 2), int((pt1[1] + pt2[1]) / 2)
     return mid_pt
+
 
 def line_intersect(l1, l2):
     """
@@ -200,9 +201,9 @@ def line_intersect(l1, l2):
 
     if d:
         # Linia A
-        t = ((ax1 - bx1) * (by1 - by2) - (ay1 -by1) * (bx1 - bx2)) / d
+        t = ((ax1 - bx1) * (by1 - by2) - (ay1 - by1) * (bx1 - bx2)) / d
         # Linia B
-        u = ((ax2 - ax1) * (ay1 - by1) - (ay2 -ay1) * (ax1 - bx1)) / d
+        u = ((ax2 - ax1) * (ay1 - by1) - (ay2 - ay1) * (ax1 - bx1)) / d
 
     else:
         return
@@ -212,4 +213,3 @@ def line_intersect(l1, l2):
     y = ay1 + t * (ay2 - ay1)
 
     return x, y
-

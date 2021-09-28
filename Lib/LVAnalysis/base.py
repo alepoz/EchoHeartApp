@@ -1,6 +1,5 @@
-import cv2 as cv
+import cv2.cv2 as cv
 import numpy as np
-import math
 from shapely.geometry import Point, Polygon
 from Lib.LVAnalysis.math_functions import *
 
@@ -9,7 +8,7 @@ def detect_base_2(img_array):
     """
     Wyznacza położenie 3 punktów podstawy
     :param img_array: obraz maski
-    :type img_array: array
+    :type img_array: numpy.array
     :return: mid_base: punkt środkowy, pt_1: 1. punkt pt_2: 2. punkt
     :rtype: tuple, tuple, tuple
     """
@@ -100,7 +99,7 @@ def detect_base_2(img_array):
             # Jeżeli dystans pomiędzy 2 kolejnymi punktami jest mniejszy niż 25
             if distance(acute_pts[i], acute_pts[i + 1]) < 25:
                 if acute_pts[i + 1][1] < acute_pts[i][1]:
-                    del_idx.append(i + 1) # Dodaj indeks punktu o wyższej wsółrzędnej y do listy indeksów
+                    del_idx.append(i + 1)  # Dodaj indeks punktu o wyższej wsółrzędnej y do listy indeksów
                 else:
                     del_idx.append(i)
             i = i + 1
@@ -126,7 +125,7 @@ def detect_base(img_array, images_out):
     """
        Wyznacza położenie 3 punktów podstawy oraz jej długość
        :param img_array: obraz maski
-       :type img_array: array
+       :type img_array: numpy.array
        :param images_out: obrazy wyjściowe
        :type images_out: list
        :return: obrazy wyjściowe, punkty podstawy: środkowy, lewy, prawy, długość podstawy
@@ -189,14 +188,14 @@ def detect_base(img_array, images_out):
                 else:
                     break
 
-    if cv.countNonZero(atr_mask) < 40: #Jeżeli obszar przedsionka jest mniejszy niż 40 px
+    if cv.countNonZero(atr_mask) < 40:  # Jeżeli obszar przedsionka jest mniejszy niż 40 px
         base_mid, det_1px, det_2px = detect_base_2(img_array)
 
-    mid_base = midpoint(det_1px, det_2px) # Oblicz punkt środka odcinka podstawy
+    mid_base = midpoint(det_1px, det_2px)  # Oblicz punkt środka odcinka podstawy
 
-    base_length = round(distance_cm(det_1px, det_2px), 2) # Oblicz długość podstawy
+    base_length = round(distance_cm(det_1px, det_2px), 2)  # Oblicz długość podstawy
 
-    if det_1px[0] < det_2px[0]: # Zdefiniuj punkty podstawy jako prawy i lewy
+    if det_1px[0] < det_2px[0]:  # Zdefiniuj punkty podstawy jako prawy i lewy
         left_base = det_1px
         right_base = det_2px
     else:

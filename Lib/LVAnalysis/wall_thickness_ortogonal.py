@@ -7,7 +7,7 @@ def count_wall_thickness_ortogonal(image, contour1, contour2):
     """
        Funkcja oblicza grubość ściany metodą podziału na równe części obu krawędzi ściany
        :param image: obraz
-       :type image: array
+       :type image: numpy.array
        :param contour1: wewnętrna krawędź (linia) ściany
        :type contour1: list
        :param contour2: zewnętrzna krawędź (linia) ściany

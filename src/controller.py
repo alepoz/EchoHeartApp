@@ -1,6 +1,4 @@
 import matplotlib
-
-matplotlib.use("TkAgg")
 import matplotlib.pylab as plt
 import tkinter as tk
 from tkinter import *
@@ -24,6 +22,8 @@ from Lib.LVAnalysis.volume import count_volume
 # Importowanie klasy Model oraz View
 from src.model import Model
 from src.view import View
+
+matplotlib.use("TkAgg")
 
 
 class Controller(object):
@@ -111,7 +111,7 @@ class Controller(object):
     def show_image(self, image):
         """ Wyświetla obraz w GUI
         :param image: wyświetlany obraz
-        :type image: array
+        :type image: numpy.array
         :return: None
         """
         plt.gray()
@@ -124,7 +124,7 @@ class Controller(object):
     def refresh_image(self, image):
         """ Odświeża wyświetlany obraz w GUI
         :param image: wyświetlany obraz
-        :type image: array
+        :type image: numpy.array
         :return: None
         """
         self.view.fig.clf()
@@ -480,9 +480,9 @@ class Controller(object):
     def appoint_apex(self, mask_sitk_img, origin_sitk_img, images_out):
         """ Funkcja wyznaczająca punkt koniuszka na aktualnym obrazie i wyświetlająca otrzymane dane
         :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-        :type mask_sitk_img: array
+        :type mask_sitk_img: numpy.array
         :param origin_sitk_img: obraz USG wyświetlanego obrazu
-        :type origin_sitk_img: array
+        :type origin_sitk_img: numpy.array
         :param images_out: obrazy wyjściowe
         :type images_out: list
         :return None
@@ -508,9 +508,9 @@ class Controller(object):
         """
             Funkcja wyznaczająca osie komory na aktualnym obrazie i wyświetlająca otrzymane dane
             :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-            :type mask_sitk_img: array
+            :type mask_sitk_img: numpy.array
             :param origin_sitk_img: obraz USG wyświetlanego obrazu
-            :type origin_sitk_img: array
+            :type origin_sitk_img: numpy.array
             :param images_out: obrazy wyjściowe
             :type images_out: list
             :return: None
@@ -669,9 +669,9 @@ class Controller(object):
     def appoint_wall_lines(self, mask_sitk_img, origin_sitk_img, images_out):
         """ Wyznacza linie ściany na aktualnym obrazie i wyświetlająca otrzymane dane
         :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-        :type mask_sitk_img: array
+        :type mask_sitk_img: numpy.array
         :param origin_sitk_img: obraz USG wyświetlanego obrazu
-        :type origin_sitk_img: array
+        :type origin_sitk_img: numpy.array
         :param images_out: obrazy wyjściowe
         :type images_out: list
         :return: None
@@ -730,9 +730,9 @@ class Controller(object):
         Funkcja wyznaczająca segmenty ściany wg długości linii ściany na aktualnym obrazie
         i wyświetlająca otrzymane dane
         :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-        :type mask_sitk_img: array
+        :type mask_sitk_img: numpy.array
         :param origin_sitk_img: obraz USG wyświetlanego obrazu
-        :type origin_sitk_img: array
+        :type origin_sitk_img: numpy.array
         :param images_out: obrazy wyjściowe
         :type images_out: list
         :return: None
@@ -783,9 +783,9 @@ class Controller(object):
         Funkcja wyznaczająca segmenty ściany wg ortogonalnych do osi długiej komory na aktualnym obrazie
         i wyświetlająca otrzymane dane
         :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-        :type mask_sitk_img: array
+        :type mask_sitk_img: numpy.array
         :param origin_sitk_img: obraz USG wyświetlanego obrazu
-        :type origin_sitk_img: array
+        :type origin_sitk_img: numpy.array
         :param images_out: obrazy wyjściowe
         :type images_out: list
         :return: None
@@ -841,9 +841,9 @@ class Controller(object):
         Oblicza powierzchnię przekroju komory na aktualnym obrazie
         i wyświetlająca otrzymany wynik
         :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-        :type mask_sitk_img: array
+        :type mask_sitk_img: numpy.array
         :param origin_sitk_img: obraz USG wyświetlanego obrazu
-        :type origin_sitk_img: array
+        :type origin_sitk_img: numpy.array
         :return: None
         """
         area = count_ventricular_area(mask_sitk_img.get_img_array())
@@ -857,9 +857,9 @@ class Controller(object):
         Oblicza powierzchnię przekroju ściany na aktualnym obrazie
         i wyświetlająca otrzymany wynik
         :param mask_sitk_img: maska aktualnie wyświetlanego obrazu
-        :type mask_sitk_img: array
+        :type mask_sitk_img: numpy.array
         :param origin_sitk_img: obraz USG wyświetlanego obrazu
-        :type origin_sitk_img: array
+        :type origin_sitk_img: numpy.array
         :return: None
         """
         area = count_wall_area(mask_sitk_img.get_img_array())

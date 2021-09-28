@@ -1,11 +1,11 @@
 from tkinter.ttk import Combobox
 import matplotlib
-
-matplotlib.use("TkAgg")
 import tkinter as tk
 from tkinter import *
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import matplotlib.pylab as plt
+
+matplotlib.use("TkAgg")
 
 
 class View(object):

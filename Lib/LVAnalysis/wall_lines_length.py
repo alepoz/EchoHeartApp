@@ -1,5 +1,6 @@
 from Lib.LVAnalysis.math_functions import *
 
+
 def wall_lines_length(contour, idx1, idx2, step=10):
     """
     Funkcja obliczająca długość konturu(linii ścian) lub jego fragmentu

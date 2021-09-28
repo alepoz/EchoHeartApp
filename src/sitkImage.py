@@ -1,11 +1,12 @@
 import SimpleITK as sitk
 import numpy as np
-import cv2 as cv
+import cv2.cv2 as cv
 
 
 class SitkImage(object):
+
     def __init__(self, image, data):
-        #Dane obrazu
+        # Dane obrazu
         self.patient_num = data['PatientNumber']
         self.name = data['Name']
         self.projection = data['Projection']
@@ -13,7 +14,7 @@ class SitkImage(object):
         self.img_type = data['ImageType']
         self.img_quality = data['ImageQuality']
 
-        #Parametry obrazu
+        # Parametry obrazu
         self.sitk_image = image
         self.img_ndarray = sitk.GetArrayFromImage(self.sitk_image)
         self.img_array = np.array(self.img_ndarray[0])
@@ -21,7 +22,7 @@ class SitkImage(object):
         self.height = self.img_array.shape[0]
         self.width = self.img_array.shape[1]
 
-        #Parametry komory
+        # Parametry komory
         self.apex_location = None
         self.base_location = None
         self.base_length = None
@@ -193,9 +194,9 @@ class SitkImage(object):
         """
         Zwraca obraz o wartościach pikseli dostosowanych do skali 8bitowej
         :param original_image:
-        :type original_image: array
+        :type original_image: numpy.array
         :return: img_out: obraz wyjściowy
-        :rtype: array
+        :rtype: numpy.array
         """
         img_out = cv.cvtColor(original_image, cv.COLOR_GRAY2BGR)
         if self.img_type == 'Mask':

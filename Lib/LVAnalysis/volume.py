@@ -6,14 +6,14 @@ def count_volume(img_array2CH, img_array4CH, data2CH, data4CH, organ):
     """
     Funkcja oblicza objętość obiektu metodą Simpsona
     :param img_array2CH: obraz w projekcji 2CH
-    :type img_array2CH: array
+    :type img_array2CH: numpy.array
     :param img_array4CH: obraz w projekcji 4CH
-    :type img_array4CH: array
+    :type img_array4CH: numpy.array
     :param data2CH: parametry projekcji 2CH - położenie koniuszka i punktów podstaw
     :type data2CH: dict
     :param data4CH: parametry projekcji 4CH - położenie koniuszka i punktów podstaw
     :type data4CH: dict
-    :param organ: narząd którego objętość jest liczona - 'ventricular' lub 'whole'
+    :param organ: narząd którego objętość jest liczona - 'ventricular' (komora) lub 'whole' (komora + ściana)
     :type organ: str
     :return: volume: objętość
     :rtype: float

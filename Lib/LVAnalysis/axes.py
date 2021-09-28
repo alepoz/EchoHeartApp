@@ -1,4 +1,4 @@
-import cv2 as cv
+import cv2.cv2 as cv
 import numpy as np
 from Lib.LVAnalysis.math_functions import *
 
@@ -7,7 +7,7 @@ def detect_axes(img_array, images_out, mid_base, apex):
     """
     Wyznacza położenie i długości osi głównych komory
     :param img_array: obraz maski
-    :type img_array: array
+    :type img_array: numpy.array
     :param images_out: obrazy wyjściowe
     :type images_out: list
     :param mid_base: punkt położenia środka podstawy

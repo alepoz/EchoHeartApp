@@ -17,7 +17,7 @@ class Patient(object):
         """
         Funkcja dodająca obraz do listy obrazów pacjenta
         :param image: obraz
-        :type image array
+        :type image numpy.array
         :param data: dane obrazu
         :type data: dict
         :return: None
@@ -31,7 +31,7 @@ class Patient(object):
         :param name: nazwa obrazu
         :type name: str
         :return: img: obraz
-        :rtype: array
+        :rtype: numpy.array
         """
         for img in self.images:
             if img.get_name() == name:
@@ -44,7 +44,7 @@ class Patient(object):
         :param img_index: indeks obrazu
         :type img_index: int
         :return: images[img_index]: obraz
-        :rtype: array
+        :rtype: numpy.array
         """
         return self.images[img_index]
 
@@ -53,7 +53,7 @@ class Patient(object):
         """
             Fukcja zwracająca pierwszy obraz pacjenta z listy
             :return: images[0]: obraz
-            :rtype: array
+            :rtype: numpy.array
         """
         return self.images[0]
 

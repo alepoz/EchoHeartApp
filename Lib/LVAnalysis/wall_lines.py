@@ -1,6 +1,5 @@
-import cv2 as cv
+import cv2.cv2 as cv
 import numpy as np
-import math
 from shapely.geometry import Point, Polygon
 from scipy import signal
 from Lib.LVAnalysis.wall_lines_length import wall_lines_length
@@ -10,7 +9,7 @@ from Lib.LVAnalysis.math_functions import *
 def detect_wall_lines(img_array, images_out):
     """
     :param img_array: obraz
-    :type img_array: array
+    :type img_array: numpy.array
     :param images_out: obrazy wyjściowe
     :type images_out: list
     :returns: obrazy wyjściowe, punkty linii epicardialnej, punkty linii środkowej, punkty linii endocardialnej, oraz

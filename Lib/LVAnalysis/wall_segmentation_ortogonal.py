@@ -1,5 +1,5 @@
 import numpy as np
-import cv2 as cv
+import cv2.cv2 as cv
 from Lib.LVAnalysis.wall_line_intersection import wall_line_intersection
 from Lib.LVAnalysis.wall_lines_length import wall_lines_length
 from Lib.LVAnalysis.wall_thickness import count_wall_thickness
@@ -12,7 +12,7 @@ def wall_segmentation_ortogonal(img_array, images_out, apex, mid_base, contour_e
     """
        Funkcja wyznacza segmenty ściany wg prostych ortogonalnych do osi długiej komory oraz parametry tych segmentów
        :param img_array: obraz (maska)
-       :type img_array: array
+       :type img_array: numpy.array
        :param images_out: obrazy wyjściowe
        :type images_out: list
        :param apex: współrzędne punktu koniuszka
