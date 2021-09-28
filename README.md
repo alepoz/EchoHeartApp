@@ -1,2 +1,4 @@
 # EchoHeartApp
-Desktop application intended for analysing echocardiographic images. It uses LVAnalysis package which allows you make heart's left ventricular parametrization.
+Desktop GUI application intended for analysing echocardiographic images which is based on MVC architectural pattern. Application was created in accordance with CAMUS database (more about CAMUS project under the link: https://www.creatis.insa-lyon.fr/Challenge/camus/). Application uses LVAnalysis package which allows you make heart's left ventricular parametrization. 
+
+Application enables to load whole patient folder containings their personal data (e.g. age, sex) and images. Every patient has 8 images: 4 original echocardiographic images with corresponding masks (prepared previously). Single mask consists of 4 marked areas in specific pixel's colour: 0 - background, 1 - ventricular, 2 - ventricular's wall, 4 - atrium.  Images are divaded into 2 projections indicating diffrent planes: 2-chamber and 4-chamber projection. Both projections represent left ventricular in 2 phases: end-systolic and end-diastolic. Images should be saved as MHD and RAW files.
